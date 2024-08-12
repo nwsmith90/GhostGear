@@ -109,3 +109,9 @@ footer {
    .slider.round:before {
      border-radius: 50%;
    }
+
+   /* Button Spacing */
+
+   #choice {
+    margin-top: 2em;
+   }
