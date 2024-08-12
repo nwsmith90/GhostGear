@@ -22,7 +22,7 @@
 /*******************************************/
 
 body {
-     text-align: center;
+     text-align: left;
 
 }
 
@@ -114,4 +114,10 @@ footer {
 
    #choice {
     margin-top: 2em;
+   }
+
+   /* Items */
+
+   .items {
+    display: block;
    }
