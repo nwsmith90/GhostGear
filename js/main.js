@@ -47,7 +47,7 @@ document.getElementById("choice").addEventListener(
  "click",
  () => {
     let randomNum = (Math.floor(Math.random()*includedKids.length))
-    if(includedKids.length < 2){
+    if(includedKids.length < 1){
         document.getElementById("logan").hidden = true;
         document.getElementById("patrick").hidden = true;
         document.getElementById("lillian").hidden = true;
