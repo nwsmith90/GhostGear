@@ -1,87 +1,95 @@
 
-let includedKids = []
+let includedGear = []
 
-function addLogan() {
-        let isLoganChecked = document.getElementById("loganCheck")
-        if(isLoganChecked.checked == true){
-                includedKids.push("logan")
+function addDots() {
+        let isDotsChecked = document.getElementById("dotsCheck")
+        if(isDotsChecked.checked == true){
+                includedGear.push("dots")
         }
                 
-        else if(isLoganChecked.checked == false){
-                includedKids = includedKids.filter(e => e !== 'logan')
+        else if(isDotsChecked.checked == false){
+                includedGear = includedGear.filter(e => e !== 'dots')
         }
 }
 
-function addPatrick() {
-        let isPatrickChecked = document.getElementById("patrickCheck")
-        if(isPatrickChecked.checked == true){
-                includedKids.push("patrick")
+function addEMF() {
+        let isEMFChecked = document.getElementById("emfCheck")
+        if(isEMFChecked.checked == true){
+                includedGear.push("emf")
         }
-        else if(isPatrickChecked.checked == false){
-                includedKids = includedKids.filter(e => e !== 'patrick')
-        }
-}
-
-function addLillian() {
-        let isLillianChecked = document.getElementById("lillianCheck")
-        if(isLillianChecked.checked == true){
-                includedKids.push("lillian")
-        }
-        else if(isLillianChecked.checked == false){
-                includedKids = includedKids.filter(e => e !== 'lillian')
+        else if(isEMFChecked.checked == false){
+                includedGear = includedGear.filter(e => e !== 'emf')
         }
 }
 
-function addSamuel() {
-        let isSamuelChecked = document.getElementById("samuelCheck")
-        if(isSamuelChecked.checked == true){
-                includedKids.push("samuel")
+function addBook() {
+        let isBookChecked = document.getElementById("bookCheck")
+        if(isBookChecked.checked == true){
+                includedGear.push("book")
         }
-        else if(isSamuelChecked.checked == false){
-                includedKids = includedKids.filter(e => e !== 'samuel')
+        else if(isBookChecked.checked == false){
+                includedGear = includedGear.filter(e => e !== 'book')
         }
 }
+
+function addSpirit() {
+        let isSpiritChecked = document.getElementById("spiritCheck")
+        if(isSpiritChecked.checked == true){
+                includedGear.push("spirit")
+        }
+        else if(isSpiritChecked.checked == false){
+                includedGear = includedGear.filter(e => e !== 'spirit')
+        }
+}
+
 
 
 document.getElementById("choice").addEventListener(
  "click",
  () => {
-    let randomNum = (Math.floor(Math.random()*includedKids.length))
-    if(includedKids.length < 1){
-        document.getElementById("logan").hidden = true;
-        document.getElementById("patrick").hidden = true;
-        document.getElementById("lillian").hidden = true;
-        document.getElementById("samuel").hidden = true;
+    let randomNum = (Math.floor(Math.random()*includedGear.length))
+    if(includedGear.length < 1){
+        document.getElementById("dots").hidden = true;
+        document.getElementById("emf").hidden = true;
+        document.getElementById("book").hidden = true;
+        document.getElementById("spirit").hidden = true;
         document.getElementById("notEnough").hidden = false;
     }
 
-    else if(includedKids[randomNum] == "logan"){
-    document.getElementById("logan").hidden = false;
-    document.getElementById("patrick").hidden = true;
-    document.getElementById("lillian").hidden = true;
-    document.getElementById("samuel").hidden = true;
+    else if(includedGear[randomNum] == "dots"){
+    document.getElementById("dots").hidden = false;
+    document.getElementById("emf").hidden = true;
+    document.getElementById("book").hidden = true;
+    document.getElementById("spirit").hidden = true;
     document.getElementById("notEnough").hidden = true;
     }
-    else if( includedKids[randomNum] == "patrick"){
-        document.getElementById("patrick").hidden = false;
-        document.getElementById("logan").hidden = true;
-        document.getElementById("lillian").hidden = true;
-        document.getElementById("samuel").hidden = true;
+    else if( includedGear[randomNum] == "emf"){
+        document.getElementById("emf").hidden = false;
+        document.getElementById("dots").hidden = true;
+        document.getElementById("book").hidden = true;
+        document.getElementById("spirit").hidden = true;
         document.getElementById("notEnough").hidden = true;
         }
-    else if(includedKids[randomNum] == "lillian"){
-            document.getElementById("lillian").hidden = false;
-            document.getElementById("logan").hidden = true;
-            document.getElementById("patrick").hidden = true;
-            document.getElementById("samuel").hidden = true;
+    else if(includedGear[randomNum] == "book"){
+            document.getElementById("book").hidden = false;
+            document.getElementById("dots").hidden = true;
+            document.getElementById("emf").hidden = true;
+            document.getElementById("spirit").hidden = true;
             document.getElementById("notEnough").hidden = true;
             }
     else{
-            document.getElementById("samuel").hidden = false;
-            document.getElementById("logan").hidden = true;
-            document.getElementById("patrick").hidden = true;
-            document.getElementById("lillian").hidden = true;
+            document.getElementById("spirit").hidden = false;
+            document.getElementById("dots").hidden = true;
+            document.getElementById("emf").hidden = true;
+            document.getElementById("book").hidden = true;
             document.getElementById("notEnough").hidden = true;
     }  
- }   
+ }   )
+
+ document.getElementById("reset").addEventListener(
+        "click",
+        () => {
+           let includedGear = []
+           
+        }   
 )
