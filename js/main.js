@@ -52,60 +52,80 @@ function addThermo() {
         }
 }
 
+function addUV() {
+        let isUVChecked = document.getElementById("uvCheck")
+        if(isUVChecked.checked == true){
+                includedGear.push('uv')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'uv')
+        }
+}
+
 
 document.getElementById("choice").addEventListener(
  "click",
  () => {
     let randomNum = (Math.floor(Math.random()*includedGear.length))
-    if(includedGear.length < 1){
-        document.getElementById("dots").hidden = true;
-        document.getElementById("emf").hidden = true;
-        document.getElementById("book").hidden = true;
-        document.getElementById("spirit").hidden = true;
-        document.getElementById("thermo").hidden = true;
-        document.getElementById("notEnough").hidden = false;
-    }
-
-    else if(includedGear[randomNum] == "dots"){
-    document.getElementById("dots").hidden = false;
-    document.getElementById("emf").hidden = true;
-    document.getElementById("book").hidden = true;
-    document.getElementById("spirit").hidden = true;
-    document.getElementById("thermo").hidden = true;
-    document.getElementById("notEnough").hidden = true;
-    }
-    else if( includedGear[randomNum] == "emf"){
-        document.getElementById("emf").hidden = false;
-        document.getElementById("dots").hidden = true;
-        document.getElementById("book").hidden = true;
-        document.getElementById("spirit").hidden = true;
-        document.getElementById("thermo").hidden = true;
-        document.getElementById("notEnough").hidden = true;
+    let showMessages = document.getElementsByClassName("messages")
+    console.log(showMessages)
+    for (let k=0; k<showMessages.length; k++){
+        if(includedGear[randomNum] == showMessages[k]){
+                console.log(showMessages[k])
+                showMessages[k].hidden = false;
+               
+                document.getElementById(`${showMessages[k]}+Check`).hidden = true;
         }
-    else if(includedGear[randomNum] == "book"){
-            document.getElementById("book").hidden = false;
-            document.getElementById("dots").hidden = true;
-            document.getElementById("emf").hidden = true;
-            document.getElementById("spirit").hidden = true;
-            document.getElementById("thermo").hidden = true;
-            document.getElementById("notEnough").hidden = true;
-            }
-    else if(includedGear[randomNum] == "spirit"){
-            document.getElementById("spirit").hidden = false;
-            document.getElementById("dots").hidden = true;
-            document.getElementById("emf").hidden = true;
-            document.getElementById("book").hidden = true;
-            document.getElementById("thermo").hidden = true;
-            document.getElementById("notEnough").hidden = true;
-    }  
-    else{
-            document.getElementById("spirit").hidden = true;
-            document.getElementById("dots").hidden = true;
-            document.getElementById("emf").hidden = true;
-            document.getElementById("book").hidden = true;
-            document.getElementById("thermo").hidden = false;
-            document.getElementById("notEnough").hidden = true;
     }
+//     if(includedGear.length < 1){
+//         document.getElementById("dots").hidden = true;
+//         document.getElementById("emf").hidden = true;
+//         document.getElementById("book").hidden = true;
+//         document.getElementById("spirit").hidden = true;
+//         document.getElementById("thermo").hidden = true;
+//         document.getElementById("notEnough").hidden = false;
+//     }
+
+//     else if(includedGear[randomNum] == "dots"){
+//     document.getElementById("dots").hidden = false;
+//     document.getElementById("emf").hidden = true;
+//     document.getElementById("book").hidden = true;
+//     document.getElementById("spirit").hidden = true;
+//     document.getElementById("thermo").hidden = true;
+//     document.getElementById("notEnough").hidden = true;
+//     }
+//     else if( includedGear[randomNum] == "emf"){
+//         document.getElementById("emf").hidden = false;
+//         document.getElementById("dots").hidden = true;
+//         document.getElementById("book").hidden = true;
+//         document.getElementById("spirit").hidden = true;
+//         document.getElementById("thermo").hidden = true;
+//         document.getElementById("notEnough").hidden = true;
+//         }
+//     else if(includedGear[randomNum] == "book"){
+//             document.getElementById("book").hidden = false;
+//             document.getElementById("dots").hidden = true;
+//             document.getElementById("emf").hidden = true;
+//             document.getElementById("spirit").hidden = true;
+//             document.getElementById("thermo").hidden = true;
+//             document.getElementById("notEnough").hidden = true;
+//             }
+//     else if(includedGear[randomNum] == "spirit"){
+//             document.getElementById("spirit").hidden = false;
+//             document.getElementById("dots").hidden = true;
+//             document.getElementById("emf").hidden = true;
+//             document.getElementById("book").hidden = true;
+//             document.getElementById("thermo").hidden = true;
+//             document.getElementById("notEnough").hidden = true;
+//     }  
+//     else{
+//             document.getElementById("spirit").hidden = true;
+//             document.getElementById("dots").hidden = true;
+//             document.getElementById("emf").hidden = true;
+//             document.getElementById("book").hidden = true;
+//             document.getElementById("thermo").hidden = false;
+//             document.getElementById("notEnough").hidden = true;
+//     }
  }   )
 
  document.getElementById("reset").addEventListener(
