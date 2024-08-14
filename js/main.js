@@ -69,12 +69,16 @@ document.getElementById("choice").addEventListener(
     let randomNum = (Math.floor(Math.random()*includedGear.length))
     let showMessages = document.getElementsByClassName("messages")
     console.log(showMessages)
+    console.log(randomNum)
+    console.log(includedGear)
     for (let k=0; k<showMessages.length; k++){
         if(includedGear[randomNum] == showMessages[k]){
-                console.log(showMessages[k])
                 showMessages[k].hidden = false;
-               
-                document.getElementById(`${showMessages[k]}+Check`).hidden = true;
+                console.log('MATCH')
+        }
+        else{
+                showMessages[k].hidden = true;
+                console.log('BOO')
         }
     }
 //     if(includedGear.length < 1){
@@ -137,6 +141,7 @@ document.getElementById("choice").addEventListener(
 
            /* clear any items onscreen */
            let messageToBeCleared = document.getElementsByClassName("messages")
+           console.log(messageToBeCleared)
            for (let i=0; i<messageToBeCleared.length; i++) {
                 messageToBeCleared[i].hidden = true
            }
