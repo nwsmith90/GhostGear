@@ -42,6 +42,15 @@ function addSpirit() {
         }
 }
 
+function addThermo() {
+        let isThermoChecked = document.getElementById("thermoCheck")
+        if(isThermoChecked.checked == true){
+                includedGear.push("thermo")
+        }
+        else if(isThermoChecked.checked == false){
+                includedGear = includedGear.filter(e => e !== 'thermo')
+        }
+}
 
 
 document.getElementById("choice").addEventListener(
@@ -53,6 +62,7 @@ document.getElementById("choice").addEventListener(
         document.getElementById("emf").hidden = true;
         document.getElementById("book").hidden = true;
         document.getElementById("spirit").hidden = true;
+        document.getElementById("thermo").hidden = true;
         document.getElementById("notEnough").hidden = false;
     }
 
@@ -61,6 +71,7 @@ document.getElementById("choice").addEventListener(
     document.getElementById("emf").hidden = true;
     document.getElementById("book").hidden = true;
     document.getElementById("spirit").hidden = true;
+    document.getElementById("thermo").hidden = true;
     document.getElementById("notEnough").hidden = true;
     }
     else if( includedGear[randomNum] == "emf"){
@@ -68,6 +79,7 @@ document.getElementById("choice").addEventListener(
         document.getElementById("dots").hidden = true;
         document.getElementById("book").hidden = true;
         document.getElementById("spirit").hidden = true;
+        document.getElementById("thermo").hidden = true;
         document.getElementById("notEnough").hidden = true;
         }
     else if(includedGear[randomNum] == "book"){
@@ -75,21 +87,46 @@ document.getElementById("choice").addEventListener(
             document.getElementById("dots").hidden = true;
             document.getElementById("emf").hidden = true;
             document.getElementById("spirit").hidden = true;
+            document.getElementById("thermo").hidden = true;
             document.getElementById("notEnough").hidden = true;
             }
-    else{
+    else if(includedGear[randomNum] == "spirit"){
             document.getElementById("spirit").hidden = false;
             document.getElementById("dots").hidden = true;
             document.getElementById("emf").hidden = true;
             document.getElementById("book").hidden = true;
+            document.getElementById("thermo").hidden = true;
             document.getElementById("notEnough").hidden = true;
     }  
+    else{
+            document.getElementById("spirit").hidden = true;
+            document.getElementById("dots").hidden = true;
+            document.getElementById("emf").hidden = true;
+            document.getElementById("book").hidden = true;
+            document.getElementById("thermo").hidden = false;
+            document.getElementById("notEnough").hidden = true;
+    }
  }   )
 
  document.getElementById("reset").addEventListener(
         "click",
         () => {
-           let includedGear = []
-           
+        
+           /* empty arrays */
+           includedGear = []
+
+           /* clear any items onscreen */
+           let messageToBeCleared = document.getElementsByClassName("messages")
+           for (let i=0; i<messageToBeCleared.length; i++) {
+                messageToBeCleared[i].hidden = true
+           }
+
+
+           /* uncheck all boxes */
+           let boxesToBeUnchecked = document.getElementsByClassName("itemsx")
+           for (let j=0; j<boxesToBeUnchecked.length; j++) {
+                boxesToBeUnchecked[j].checked = false;
+           }
+       
         }   
 )
