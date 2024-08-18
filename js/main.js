@@ -62,6 +62,146 @@ function addUV() {
         }
 }
 
+function addVideo() {
+        let isVideoChecked = document.getElementById("videoCheck")
+        if(isVideoChecked.checked == true){
+                includedGear.push('video')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'video')
+        }
+}
+
+function addFlashlight() {
+        let isFlashlightChecked = document.getElementById("flashlightCheck")
+        if(isFlashlightChecked.checked == true){
+                includedGear.push('flashlight')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'flashlight')
+        }
+}
+
+function addCrucifix() {
+        let isCrucifixChecked = document.getElementById("crucifixCheck")
+        if(isCrucifixChecked.checked == true){
+                includedGear.push('crucifix')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'crucifix')
+        }
+}
+
+function addFirelight() {
+        let isFirelightChecked = document.getElementById("firelightCheck")
+        if(isFirelightChecked.checked == true){
+                includedGear.push('firelight')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'firelight')
+        }
+}
+
+function addHeadgear() {
+        let isHeadgearChecked = document.getElementById("headgearCheck")
+        if(isHeadgearChecked.checked == true){
+                includedGear.push('headgear')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'headgear')
+        }
+}
+
+function addIgniter() {
+        let isIgniterChecked = document.getElementById("igniterCheck")
+        if(isIgniterChecked.checked == true){
+                includedGear.push('igniter')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'igniter')
+        }
+}
+
+function addIncense() {
+        let isIncenseChecked = document.getElementById("incenseCheck")
+        if(isIncenseChecked.checked == true){
+                includedGear.push('incense')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'incense')
+        }
+}
+
+function addMotion() {
+        let isMotionChecked = document.getElementById("motionCheck")
+        if(isMotionChecked.checked == true){
+                includedGear.push('motion')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'motion')
+        }
+}
+
+function addParabolic() {
+        let isParabolicChecked = document.getElementById("parabolicCheck")
+        if(isParabolicChecked.checked == true){
+                includedGear.push('parabolic')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'parabolic')
+        }
+}
+
+function addPhoto() {
+        let isPhotoChecked = document.getElementById("photoCheck")
+        if(isPhotoChecked.checked == true){
+                includedGear.push('photo')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'photo')
+        }
+}
+
+function addSalt() {
+        let isSaltChecked = document.getElementById("saltCheck")
+        if(isSaltChecked.checked == true){
+                includedGear.push('salt')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'salt')
+        }
+}
+
+function addSanity() {
+        let isSanityChecked = document.getElementById("sanityCheck")
+        if(isSanityChecked.checked == true){
+                includedGear.push('sanity')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'sanity')
+        }
+}
+
+function addSound() {
+        let isSoundChecked = document.getElementById("soundCheck")
+        if(isSoundChecked.checked == true){
+                includedGear.push('sound')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'sound')
+        }
+}
+
+function addTripod() {
+        let isTripodChecked = document.getElementById("tripodCheck")
+        if(isTripodChecked.checked == true){
+                includedGear.push('tripod')
+        }
+        else{
+                includedGear = includedGear.filter(e => e !== 'tripod')
+        }
+}
+
 
 document.getElementById("choice").addEventListener(
  "click",
@@ -70,15 +210,23 @@ document.getElementById("choice").addEventListener(
     let showMessages = document.getElementsByClassName("messages")
     console.log(showMessages)
     console.log(randomNum)
-    console.log(includedGear)
-    for (let k=0; k<showMessages.length; k++){
-        if(includedGear[randomNum] == showMessages[k]){
-                showMessages[k].hidden = false;
-                console.log('MATCH')
-        }
-        else{
-                showMessages[k].hidden = true;
-                console.log('BOO')
+    console.log(includedGear[randomNum])
+    console.log(showMessages[randomNum])
+
+    if(includedGear.length < 1){
+        document.getElementById("notEnough").hidden = false
+    }
+
+    else{
+        for (let k=0; k<showMessages.length; k++){
+                if(includedGear[randomNum] == showMessages[k].id){
+                        showMessages[k].hidden = false;
+                        console.log('MATCH')
+                }
+                else{
+                        showMessages[k].hidden = true;
+                        console.log('BOO')
+                }
         }
     }
 //     if(includedGear.length < 1){
