@@ -202,83 +202,43 @@ function addTripod() {
         }
 }
 
+// Generate Array of available options
+let availableItems = []
 
+// Click "Roll"
 document.getElementById("choice").addEventListener(
  "click",
  () => {
     let randomNum = (Math.floor(Math.random()*includedGear.length))
     let showMessages = document.getElementsByClassName("messages")
-    console.log(showMessages)
-    console.log(randomNum)
-    console.log(includedGear[randomNum])
-    console.log(showMessages[randomNum])
 
+    // Display not enough selections message if nothing checked
     if(includedGear.length < 1){
         document.getElementById("notEnough").hidden = false
     }
 
-    else{
-        for (let k=0; k<showMessages.length; k++){
+    //  Display random selection one at a time. 
+    //  Need to change to add to an array, which should be displayed in dom under heading "Available Items"
+//     else{
+//         for (let k=0; k<showMessages.length; k++){
+//                 if(includedGear[randomNum] == showMessages[k].id){
+//                         showMessages[k].hidden = false;
+//                 }
+//                 else{
+//                         showMessages[k].hidden = true;
+//                 }
+//         }
+//     }
+    else {
+        for(let k=0; k<showMessages.length; k++){
                 if(includedGear[randomNum] == showMessages[k].id){
-                        showMessages[k].hidden = false;
-                        console.log('MATCH')
-                }
-                else{
-                        showMessages[k].hidden = true;
-                        console.log('BOO')
+                        availableItems = availableItems.push(`test`)
+                        console.log(availableItems)
                 }
         }
     }
-//     if(includedGear.length < 1){
-//         document.getElementById("dots").hidden = true;
-//         document.getElementById("emf").hidden = true;
-//         document.getElementById("book").hidden = true;
-//         document.getElementById("spirit").hidden = true;
-//         document.getElementById("thermo").hidden = true;
-//         document.getElementById("notEnough").hidden = false;
-//     }
-
-//     else if(includedGear[randomNum] == "dots"){
-//     document.getElementById("dots").hidden = false;
-//     document.getElementById("emf").hidden = true;
-//     document.getElementById("book").hidden = true;
-//     document.getElementById("spirit").hidden = true;
-//     document.getElementById("thermo").hidden = true;
-//     document.getElementById("notEnough").hidden = true;
-//     }
-//     else if( includedGear[randomNum] == "emf"){
-//         document.getElementById("emf").hidden = false;
-//         document.getElementById("dots").hidden = true;
-//         document.getElementById("book").hidden = true;
-//         document.getElementById("spirit").hidden = true;
-//         document.getElementById("thermo").hidden = true;
-//         document.getElementById("notEnough").hidden = true;
-//         }
-//     else if(includedGear[randomNum] == "book"){
-//             document.getElementById("book").hidden = false;
-//             document.getElementById("dots").hidden = true;
-//             document.getElementById("emf").hidden = true;
-//             document.getElementById("spirit").hidden = true;
-//             document.getElementById("thermo").hidden = true;
-//             document.getElementById("notEnough").hidden = true;
-//             }
-//     else if(includedGear[randomNum] == "spirit"){
-//             document.getElementById("spirit").hidden = false;
-//             document.getElementById("dots").hidden = true;
-//             document.getElementById("emf").hidden = true;
-//             document.getElementById("book").hidden = true;
-//             document.getElementById("thermo").hidden = true;
-//             document.getElementById("notEnough").hidden = true;
-//     }  
-//     else{
-//             document.getElementById("spirit").hidden = true;
-//             document.getElementById("dots").hidden = true;
-//             document.getElementById("emf").hidden = true;
-//             document.getElementById("book").hidden = true;
-//             document.getElementById("thermo").hidden = false;
-//             document.getElementById("notEnough").hidden = true;
-//     }
- }   )
+ }   
+)
 
  document.getElementById("reset").addEventListener(
         "click",
@@ -286,10 +246,10 @@ document.getElementById("choice").addEventListener(
         
            /* empty arrays */
            includedGear = []
+           availableItems = []
 
            /* clear any items onscreen */
            let messageToBeCleared = document.getElementsByClassName("messages")
-           console.log(messageToBeCleared)
            for (let i=0; i<messageToBeCleared.length; i++) {
                 messageToBeCleared[i].hidden = true
            }
